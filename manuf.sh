@@ -16,6 +16,12 @@ main(){
     PREFIX=$( echo "$1" | tr a-f A-F )
     echo "Searching: $PREFIX" > /dev/stderr
     grep "^$PREFIX" "$MANUF_FILE"
+    if [ "$?" == 0 ]
+    then
+        true
+    else
+        echo "Not found"
+    fi
 }
 
 if [ "$#" == 0 ]
